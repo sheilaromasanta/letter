@@ -157,10 +157,6 @@
 </head>
 <body>
 
-    <!-- ========================================== -->
-    <!-- AUDIO PLAYER                               -->
-    <!-- Replace "music.mp3" with your audio path   -->
-    <!-- ========================================== -->
     <audio id="music" loop>
         <source src="music.mp3" type="audio/mpeg">
     </audio>
@@ -182,7 +178,8 @@
 
         <!-- SIGNATURE -->
         <div id="signature">
-            <p>Goodbye,</p>
+            <p>Sincerely,</p>
+            <strong>Shei</strong>
         </div>
 
         <!-- FINAL CONFESSION -->
@@ -194,94 +191,53 @@
     <script>
         const letterText = `Hi, Gerald,
 
-Maybe this will be my final act of love for you.
+Maybe this will be my final act of love.
 
-Not because my feelings disappeared,
-but because I've realized that sometimes,
-the kindest thing I can do is simply walk away.
+Not because my feelings instantly disappeared,
+but because I’ve realized that the kindest thing I can do now
+is simply walk away.
 
-When I first met you,
-I felt so safe.
-I accepted your flaws,
-chose to understand your baggage,
-and loved you despite all your shortcomings.
-
-I admit I was foolish
-for giving my whole heart
-before I truly knew who you were.
-But everything I felt for you
-was pure and genuine.
-I was ready to give you the world
+When I first met you, I felt safe.
+I accepted your flaws, understood your baggage,
+and gave you my whole heart.
+Everything I felt for you was pure and genuine,
+and I was ready to give you the world
 just to make sure you felt loved.
 
-In the end, you lied to me.
-You took advantage of me,
-used me for my body,
-and walked away without a proper goodbye.
+I thought I could help heal you,
+but instead, you broke me.
 
-Even when I was fighting for my life in the hospital,
-you responded with pure coldness,
-ghosted me,
-and made up excuses to justify abandoning me.
-Finding out the truth
-and discovering all the lies
-broke me in ways I can barely explain.
-
-I thought I could heal you.
-Instead, you broke me.
-
-Yet, despite everything you did to me,
-I can’t bring myself to hate you.
-I'm not even mad anymore.
-
-Because even after all the pain,
-I still choose to see the goodness in you
-that others might miss.
-All I ever wanted
-was to give you real, honest love.
-
-So I’m choosing to let go now.
-
-Not because what you did was okay,
+I’m choosing to let go now—
+not because what happened was okay,
 and not because I don't care,
 but because I accept that I can't force you to stay.
 
-From now on,
-I’ll just admire you from a distance.
-
-I’ll quietly root for you,
-hope you find whatever it is you’re looking for,
-and wish you all the happiness you deserve.
-
 I don't regret caring about you,
 and I don't regret loving you.
+All I ever wanted was to give you real, honest love.
 
-This isn't me asking you to come back.
-It's just me finally accepting
-that my journey with you ends here.
+This isn't me asking for answers,
+and this isn't me asking you to come back.
+It is simply me choosing to move forward, reclaim my peace,
+and accept that my journey with you ends here.
 
 So take care of yourself, Gerald.
 
-I’ll let you go now.`;
+I’m letting you go now.`;
 
         function openLetter() {
-
-            /* Play audio on envelope click */
             const music = document.getElementById("music");
             music.play().catch(error => {
                 console.log("Music playback was blocked by browser:", error);
             });
 
-            /* Trigger envelope open animation */
             const envelope = document.getElementById("envelope");
             envelope.classList.add("open");
 
-            /* Fade out intro element */
             setTimeout(() => {
                 document.getElementById("intro").classList.add("fadeOut");
             }, 1200);
 
-            /* Display letter container and start typewriter effect */
             setTimeout(() => {
                 document.getElementById("intro").style.display = "none";
                 const letter = document.getElementById("letter");
@@ -302,7 +258,6 @@ I’ll let you go now.`;
                     let displayedText = letterText.substring(0, i + 1).replace(/\n/g, "<br>");
                     target.innerHTML = displayedText + '<span class="cursor">|</span>';
                     
-                    /* Keep container scrolled down with typing cursor */
                     letter.scrollTop = letter.scrollHeight;
                     
                     i++;
@@ -310,12 +265,10 @@ I’ll let you go now.`;
                 } else {
                     target.innerHTML = letterText.replace(/\n/g, "<br>");
 
-                    /* Display signature */
                     const signature = document.getElementById("signature");
                     signature.style.display = "block";
                     letter.scrollTop = letter.scrollHeight;
 
-                    /* Display final line */
                     setTimeout(() => {
                         const endMessage = document.getElementById("endMessage");
                         endMessage.style.display = "block";
