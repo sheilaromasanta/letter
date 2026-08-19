@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>For Gerald</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Georgia, serif;
+            background: linear-gradient(135deg, #ffd6e7, #fff5fa);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+        }
+
+        #intro {
+            text-align: center;
+        }
+
+        #intro h2 {
+            margin-top: 25px;
+            color: #d63384;
+        }
+
+        /* ENVELOPE */
+        .envelope {
+            width: 260px;
+            height: 170px;
+            position: relative;
+            margin: auto;
+            cursor: pointer;
+        }
+
+        .envelopeBody {
+            position: absolute;
+            width: 100%; 
+            height: 100%;
+            background: #ff9eb5;
+            border-radius: 0 0 12px 12px;
+            box-shadow: 0 15px 40px rgba(0, 0, 0, .15);
+        }
+
+        .flap {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 0;
+            height: 0;
+            border-left: 130px solid transparent;
+            border-right: 130px solid transparent;
+            border-top: 85px solid #ff7ea1;
+            transform-origin: top;
+            transition: 1.2s ease;
+            z-index: 3;
+        }
+
+        .envelope.open .flap {
+            transform: rotateX(180deg);
+        }
+
+        /* LETTER */
+        #letter {
+            display: none;
+            opacity: 0;
+            width: 90%;
+            max-width: 900px;
+            max-height: 90vh;
+            overflow-y: auto;
+            background: white;
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 0 35px rgba(0, 0, 0, .15);
+            scroll-behavior: smooth;
+        }
+
+        .showLetter {
+            animation: showLetter 1.2s forwards;
+        }
+
+        @keyframes showLetter {
+            from {
+                opacity: 0;
+                transform: scale(.8);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        .fadeOut {
+            animation: fadeOut 1s forwards;
+        }
+
+        @keyframes fadeOut {
+            to {
+                opacity: 0;
+            }
+        }
+
+        /* LETTER CONTENT */
+        #letter h1 {
+            text-align: center;
+            color: #d63384;
+            margin-bottom: 30px;
+        }
+
+        #typewriter {
+            white-space: pre-wrap;
+            line-height: 1.9;
+            font-size: 19px;
+            color: #444;
+        }
+
+        .cursor {
+            animation: blink .8s infinite;
+            color: #d63384;
+            font-weight: bold;
+        }
+
+        @keyframes blink {
+            50% {
+                opacity: 0;
+            }
+        }
+
+        #signature {
+            display: none;
+            text-align: right;
+            margin-top: 40px;
+            font-size: 20px;
+        }
+
+        #endMessage {
+            display: none;
+            text-align: center;
+            margin-top: 30px;
+            font-size: 24px;
+            color: #e63946;
+            font-weight: bold;
+            opacity: 0;
+            transition: opacity 1.5s ease-in-out;
+        }
+
+        #endMessage.show {
+            opacity: 1;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- ========================================== -->
+    <!-- AUDIO PLAYER                               -->
+    <!-- Replace "music.mp3" with your audio path   -->
+    <!-- ========================================== -->
+    <audio id="music" loop>
+        <source src="music.mp3" type="audio/mpeg">
+    </audio>
+
+    <!-- ENVELOPE INTRO -->
+    <div id="intro">
+        <div class="envelope" id="envelope" onclick="openLetter()">
+            <div class="envelopeBody"></div>
+            <div class="flap"></div>
+            <div class="envelopeLetter"></div>
+        </div>
+        <h2>Click to Open Your Letter</h2>
+    </div>
+
+    <!-- LETTER CONTAINER -->
+    <div id="letter">
+        <h1>Final act of love</h1>
+        <div id="typewriter"></div>
+
+        <!-- SIGNATURE -->
+        <div id="signature">
+            <p>Goodbye,</p>
+        </div>
+
+        <!-- FINAL CONFESSION -->
+        <div id="endMessage">
+            Take care of yourself.
+        </div>
+    </div>
+
+    <script>
+        const letterText = `Hi, Gerald,
+
+Maybe this will be my final act of love for you.
+
+Not because my feelings disappeared,
+but because I've realized that sometimes,
+the kindest thing I can do is simply walk away.
+
+When I first met you,
+I felt so safe.
+I accepted your flaws,
+chose to understand your baggage,
+and loved you despite all your shortcomings.
+
+I admit I was foolish
+for giving my whole heart
+before I truly knew who you were.
+But everything I felt for you
+was pure and genuine.
+I was ready to give you the world
+just to make sure you felt loved.
+
+In the end, you lied to me.
+You took advantage of me,
+used me for my body,
+and walked away without a proper goodbye.
+
+Even when I was fighting for my life in the hospital,
+you responded with pure coldness,
+ghosted me,
+and made up excuses to justify abandoning me.
+Finding out the truth
+and discovering all the lies
+broke me in ways I can barely explain.
+
+I thought I could heal you.
+Instead, you broke me.
+
+Yet, despite everything you did to me,
+I can’t bring myself to hate you.
+I'm not even mad anymore.
+
+Because even after all the pain,
+I still choose to see the goodness in you
+that others might miss.
+All I ever wanted
+was to give you real, honest love.
+
+So I’m choosing to let go now.
+
+Not because what you did was okay,
+and not because I don't care,
+but because I accept that I can't force you to stay.
+
+From now on,
+I’ll just admire you from a distance.
+
+I’ll quietly root for you,
+hope you find whatever it is you’re looking for,
+and wish you all the happiness you deserve.
+
+I don't regret caring about you,
+and I don't regret loving you.
+
+This isn't me asking you to come back.
+It's just me finally accepting
+that my journey with you ends here.
+
+So take care of yourself, Gerald.
+
+I’ll let you go now.`;
+
+        function openLetter() {
+
+            /* Play audio on envelope click */
+            const music = document.getElementById("music");
+            music.play().catch(error => {
+                console.log("Music playback was blocked by browser:", error);
+            });
+
+            /* Trigger envelope open animation */
+            const envelope = document.getElementById("envelope");
+            envelope.classList.add("open");
+
+            /* Fade out intro element */
+            setTimeout(() => {
+                document.getElementById("intro").classList.add("fadeOut");
+            }, 1200);
+
+            /* Display letter container and start typewriter effect */
+            setTimeout(() => {
+                document.getElementById("intro").style.display = "none";
+                const letter = document.getElementById("letter");
+                letter.style.display = "block";
+                letter.classList.add("showLetter");
+
+                typeWriter();
+            }, 2200);
+        }
+
+        function typeWriter() {
+            const target = document.getElementById("typewriter");
+            const letter = document.getElementById("letter");
+            let i = 0;
+
+            function type() {
+                if (i < letterText.length) {
+                    let displayedText = letterText.substring(0, i + 1).replace(/\n/g, "<br>");
+                    target.innerHTML = displayedText + '<span class="cursor">|</span>';
+                    
+                    /* Keep container scrolled down with typing cursor */
+                    letter.scrollTop = letter.scrollHeight;
+                    
+                    i++;
+                    setTimeout(type, 25);
+                } else {
+                    target.innerHTML = letterText.replace(/\n/g, "<br>");
+
+                    /* Display signature */
+                    const signature = document.getElementById("signature");
+                    signature.style.display = "block";
+                    letter.scrollTop = letter.scrollHeight;
+
+                    /* Display final line */
+                    setTimeout(() => {
+                        const endMessage = document.getElementById("endMessage");
+                        endMessage.style.display = "block";
+
+                        setTimeout(() => {
+                            endMessage.classList.add("show");
+                            letter.scrollTop = letter.scrollHeight;
+                        }, 50);
+                    }, 2500);
+                }
+            }
+
+            type();
+        }
+    </script>
+</body>
+</html>
